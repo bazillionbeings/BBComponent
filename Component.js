@@ -1,26 +1,14 @@
 'use strict';
 
 class Component {
-  constructor(controllerCallBacks, dataStore, types) {
-    this._inputs = this._getInput(dataStore, types);
-    this._controllerCallBacks = controllerCallBacks;
-  }
+    constructor(controllerCallBacks, inputTypes) {
+        this._inputTypes = inputTypes;
+        this._controllerCallBacks = controllerCallBacks;
+    }
 
-  _getInput(dataStore, types) {
-    var result = {};
-    dataStore.forEach(function (data) {
-      types.forEach(function (type) {
-        if (type === data.type) {
-          result[type] = data.data;
-        }
-      });
-    });
-    return result;
-  }
-
-  setDataStore(dataStore) {
-    this._dataStore = datastore;
-  }
+    get inputTypes() {
+        return this._inputTypes;
+    }
 }
 
 module.exports = Component;
